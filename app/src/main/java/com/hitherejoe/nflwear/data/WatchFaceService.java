@@ -8,8 +8,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.wearable.watchface.CanvasWatchFaceService;
@@ -30,6 +33,7 @@ public class WatchFaceService extends CanvasWatchFaceService {
      */
     private static final long INTERACTIVE_UPDATE_RATE_MS = TimeUnit.SECONDS.toMillis(1);
     private Bitmap mBackgroundBitmap;
+    private Bitmap mGreyBackgroundBitmap;
 
     @Override
     public Engine onCreateEngine() {
@@ -72,6 +76,17 @@ public class WatchFaceService extends CanvasWatchFaceService {
         private Paint mHandPaint;
 
         private boolean mAmbient;
+
+        /**
+         * Whether the display supports fewer bits for each color in ambient mode.
+         * When true, we disable anti-aliasing in ambient mode.
+         */
+        private boolean mLowBitAmbient;
+        /**
+         * Whether the display supports burn in protection in ambient mode.
+         * When true, remove the background in ambient mode.
+         */
+        private boolean mBurnInProtection;
 
         private float mHourHandLength;
         private float mMinuteHandLength;
@@ -123,6 +138,9 @@ public class WatchFaceService extends CanvasWatchFaceService {
             super.onAmbientModeChanged(inAmbientMode);
             if (mAmbient != inAmbientMode) {
                 mAmbient = inAmbientMode;
+                if (mLowBitAmbient || mBurnInProtection) {
+                    mHandPaint.setAntiAlias(!inAmbientMode);
+                }
                 invalidate();
             }
 
@@ -157,6 +175,9 @@ public class WatchFaceService extends CanvasWatchFaceService {
             mBackgroundBitmap = Bitmap.createScaledBitmap(mBackgroundBitmap,
                     (int) (mBackgroundBitmap.getWidth() * scale),
                     (int) (mBackgroundBitmap.getHeight() * scale), true);
+            if (!mBurnInProtection || !mLowBitAmbient) {
+                initGreyBackgroundBitmap();
+            }
         }
 
         @Override
@@ -165,7 +186,13 @@ public class WatchFaceService extends CanvasWatchFaceService {
 
             // Draw the background.
             //canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), mBackgroundPaint);
-            canvas.drawBitmap(mBackgroundBitmap, 0, 0, mBackgroundPaint);
+            if (mAmbient && (mLowBitAmbient || mBurnInProtection)) {
+                canvas.drawColor(Color.BLACK);
+            } else {
+                Bitmap backgroundBitmap = mAmbient ? mGreyBackgroundBitmap : mBackgroundBitmap;
+                canvas.drawBitmap(backgroundBitmap, 0, 0, mBackgroundPaint);
+            }
+            mHandPaint.setAntiAlias(!mAmbient);
 
             /*
              * These calculations reflect the rotation in degrees per unit of
@@ -217,6 +244,13 @@ public class WatchFaceService extends CanvasWatchFaceService {
             updateTimer();
         }
 
+        @Override
+        public void onPropertiesChanged(Bundle properties) {
+            super.onPropertiesChanged(properties);
+            mLowBitAmbient = properties.getBoolean(PROPERTY_LOW_BIT_AMBIENT, false);
+            mBurnInProtection = properties.getBoolean(PROPERTY_BURN_IN_PROTECTION, false);
+        }
+
         private void registerReceiver() {
             if (mRegisteredTimeZoneReceiver) {
                 return;
@@ -239,6 +273,18 @@ public class WatchFaceService extends CanvasWatchFaceService {
             if (shouldTimerBeRunning()) {
                 mUpdateTimeHandler.sendEmptyMessage(R.id.message_update);
             }
+        }
+
+        private void initGreyBackgroundBitmap() {
+            mGreyBackgroundBitmap = Bitmap.createBitmap(mBackgroundBitmap.getWidth(),
+                    mBackgroundBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(mGreyBackgroundBitmap);
+            Paint greyPaint = new Paint();
+            ColorMatrix colorMatrix = new ColorMatrix();
+            colorMatrix.setSaturation(0);
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(colorMatrix);
+            greyPaint.setColorFilter(filter);
+            canvas.drawBitmap(mBackgroundBitmap, 0, 0, greyPaint);
         }
 
         /**
