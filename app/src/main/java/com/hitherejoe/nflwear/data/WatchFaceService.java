@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -27,6 +29,7 @@ public class WatchFaceService extends CanvasWatchFaceService {
      * second hand.
      */
     private static final long INTERACTIVE_UPDATE_RATE_MS = TimeUnit.SECONDS.toMillis(1);
+    private Bitmap mBackgroundBitmap;
 
     @Override
     public Engine onCreateEngine() {
@@ -92,6 +95,8 @@ public class WatchFaceService extends CanvasWatchFaceService {
             mBackgroundPaint = new Paint();
             mBackgroundPaint.setColor(Color.BLACK);
 
+            mBackgroundBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.custom_background);
+
             mHandPaint = new Paint();
             mHandPaint.setColor(Color.WHITE);
             mHandPaint.setStrokeWidth(STROKE_WIDTH);
@@ -147,6 +152,11 @@ public class WatchFaceService extends CanvasWatchFaceService {
             mHourHandLength = mCenterX - 80;
             mMinuteHandLength = mCenterX - 40;
             mSecondHandLength = mCenterX - 20;
+
+            float scale = ((float) width) / (float) mBackgroundBitmap.getWidth();
+            mBackgroundBitmap = Bitmap.createScaledBitmap(mBackgroundBitmap,
+                    (int) (mBackgroundBitmap.getWidth() * scale),
+                    (int) (mBackgroundBitmap.getHeight() * scale), true);
         }
 
         @Override
@@ -154,7 +164,8 @@ public class WatchFaceService extends CanvasWatchFaceService {
             mTime.setToNow();
 
             // Draw the background.
-            canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), mBackgroundPaint);
+            //canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), mBackgroundPaint);
+            canvas.drawBitmap(mBackgroundBitmap, 0, 0, mBackgroundPaint);
 
             /*
              * These calculations reflect the rotation in degrees per unit of

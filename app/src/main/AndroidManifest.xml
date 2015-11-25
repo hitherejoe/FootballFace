@@ -14,7 +14,7 @@
 
         <service
             android:name=".data.WatchFaceService"
-            android:label="@string/my_analog_name"
+            android:label="@string/watch_face_name"
             android:permission="android.permission.BIND_WALLPAPER" >
             <meta-data
                 android:name="android.service.wallpaper"
