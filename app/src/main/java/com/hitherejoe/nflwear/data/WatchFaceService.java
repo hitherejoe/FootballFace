@@ -76,16 +76,7 @@ public class WatchFaceService extends CanvasWatchFaceService {
         private Paint mHandPaint;
 
         private boolean mAmbient;
-
-        /**
-         * Whether the display supports fewer bits for each color in ambient mode.
-         * When true, we disable anti-aliasing in ambient mode.
-         */
         private boolean mLowBitAmbient;
-        /**
-         * Whether the display supports burn in protection in ambient mode.
-         * When true, remove the background in ambient mode.
-         */
         private boolean mBurnInProtection;
 
         private float mHourHandLength;
