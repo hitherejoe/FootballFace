@@ -1,4 +1,4 @@
-package com.hitherejoe.nflwear.ui.widget;
+package com.hitherejoe.footballface.ui.widget;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hitherejoe.nflwear.R;
-import com.hitherejoe.nflwear.data.model.Team;
+import com.hitherejoe.footballface.R;
+import com.hitherejoe.footballface.data.model.Team;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

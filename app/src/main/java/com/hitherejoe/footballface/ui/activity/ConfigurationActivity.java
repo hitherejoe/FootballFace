@@ -1,4 +1,4 @@
-package com.hitherejoe.nflwear.ui.activity;
+package com.hitherejoe.footballface.ui.activity;
 
 import android.app.Activity;
 
@@ -13,10 +13,10 @@ import android.widget.TextView;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.Wearable;
-import com.hitherejoe.nflwear.R;
-import com.hitherejoe.nflwear.data.model.Team;
-import com.hitherejoe.nflwear.ui.adapter.TeamAdapter;
-import com.hitherejoe.nflwear.util.WatchFaceUtil;
+import com.hitherejoe.footballface.R;
+import com.hitherejoe.footballface.data.model.Team;
+import com.hitherejoe.footballface.ui.adapter.TeamAdapter;
+import com.hitherejoe.footballface.util.WatchFaceUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.hitherejoe.nflwear.data;
+package com.hitherejoe.footballface.data;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.Wearable;
 import com.google.android.gms.wearable.WearableListenerService;
-import com.hitherejoe.nflwear.util.WatchFaceUtil;
+import com.hitherejoe.footballface.util.WatchFaceUtil;
 
 import java.util.concurrent.TimeUnit;
 

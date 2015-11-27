@@ -1,4 +1,4 @@
-package com.hitherejoe.nflwear.data;
+package com.hitherejoe.footballface.data;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -30,10 +30,9 @@ import com.google.android.gms.wearable.DataItem;
 import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.DataMapItem;
 import com.google.android.gms.wearable.Wearable;
-import com.hitherejoe.nflwear.R;
-import com.hitherejoe.nflwear.util.WatchFaceUtil;
+import com.hitherejoe.footballface.R;
+import com.hitherejoe.footballface.util.WatchFaceUtil;
 
-import java.lang.ref.WeakReference;
 import java.util.Calendar;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;

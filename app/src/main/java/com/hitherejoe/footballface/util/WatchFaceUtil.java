@@ -1,4 +1,4 @@
-package com.hitherejoe.nflwear.util;
+package com.hitherejoe.footballface.util;
 
 import android.net.Uri;
 

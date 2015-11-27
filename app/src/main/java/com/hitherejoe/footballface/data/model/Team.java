@@ -1,4 +1,4 @@
-package com.hitherejoe.nflwear.data.model;
+package com.hitherejoe.footballface.data.model;
 
 public class Team {
     public String name;

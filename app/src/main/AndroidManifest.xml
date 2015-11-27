@@ -1,8 +1,7 @@
-<manifest package="com.hitherejoe.nflwear"
+<manifest package="com.hitherejoe.footballface"
           xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-feature android:name="android.hardware.type.watch" />
 
-    <!-- Required to act as a custom watch face. -->
     <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -13,10 +12,10 @@
                  android:theme="@android:style/Theme.DeviceDefault">
 
         <activity
-            android:name="com.hitherejoe.nflwear.ui.activity.ConfigurationActivity"
+            android:name="com.hitherejoe.footballface.ui.activity.ConfigurationActivity"
             android:label="@string/config_activity_name">
             <intent-filter>
-                <action android:name="com.hitherejoe.nflwear.CONFIG_ANALOG" />
+                <action android:name="com.hitherejoe.footballface.CONFIG_ANALOG" />
                 <category android:name=
                               "com.google.android.wearable.watchface.category.WEARABLE_CONFIGURATION" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -24,9 +23,9 @@
         </activity>
 
         <service
-            android:name=".data.WatchFaceService"
+            android:name="com.hitherejoe.footballface.data.WatchFaceService"
             android:label="@string/watch_face_name"
-            android:permission="android.permission.BIND_WALLPAPER" >
+            android:permission="android.permission.BIND_WALLPAPER">
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/watch_face" />
@@ -39,7 +38,7 @@
 
             <meta-data
                 android:name="com.google.android.wearable.watchface.wearableConfigurationAction"
-                android:value="com.hitherejoe.nflwear.CONFIG_ANALOG" />
+                android:value="com.hitherejoe.footballface.CONFIG_ANALOG" />
 
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
@@ -48,7 +47,7 @@
             </intent-filter>
         </service>
 
-        <service android:name="com.hitherejoe.nflwear.data.WatchFaceConfigListenerService" >
+        <service android:name="com.hitherejoe.footballface.data.WatchFaceConfigListenerService">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>

@@ -1,13 +1,13 @@
-package com.hitherejoe.nflwear.ui.adapter;
+package com.hitherejoe.footballface.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.wearable.view.WearableListView;
 import android.view.ViewGroup;
 
-import com.hitherejoe.nflwear.R;
-import com.hitherejoe.nflwear.data.model.Team;
-import com.hitherejoe.nflwear.ui.widget.TeamItem;
+import com.hitherejoe.footballface.R;
+import com.hitherejoe.footballface.data.model.Team;
+import com.hitherejoe.footballface.ui.widget.TeamItem;
 
 public class TeamAdapter extends WearableListView.Adapter {
     private Team[] mTeamsArray;
