@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="config_activity_background">#ffffff</color>
+    <color name="config_activity_header_text_color">#959595</color>
+    <color name="color_item_label_color">#000000</color>
+
+    <!-- Team colors -->
+    <color name="default_color">#8F0808</color>
+    <color name="atlanta_falcons_red">#B01742</color>
+    <color name="arizona_cardinals_red">#84161C</color>
+    <color name="baltimore_ravens_blue">#27318C</color>
+    <color name="buffalo_bills_blue">#194787</color>
+    <color name="carolina_panthers_blue">#7098A9</color>
+    <color name="chicago_bears_orange">#DF6108</color>
+    <color name="cleveland_browns_orange">#EF4123</color>
+    <color name="cincinnati_bengals_orange">#F04E23</color>
+    <color name="dallas_cowboys_grey">#DCDCDC</color>
+    <color name="denver_broncos_orange">#DE6226</color>
+    <color name="detroit_lions_blue">#006DB0</color>
+    <color name="green_bay_packers_green">#313F36</color>
+    <color name="houston_texans_blue">#06192E</color>
+    <color name="indianapolis_colts_grey">#DCDCDC</color>
+    <color name="jacksonville_jaguars_yellow">#D2A941</color>
+    <color name="kansas_city_chiefs_red">#B21E35</color>
+    <color name="miami_dolphins_blue">#015E6A</color>
+    <color name="minnesota_vikings_yellow">#EEBF1B</color>
+    <color name="new_england_patriots_blue">#0D254C</color>
+    <color name="new_orleans_saints_yellow">#C6A876</color>
+    <color name="new_york_giants_blue">#25316A</color>
+    <color name="new_york_jets_grey">#DCDCDC</color>
+    <color name="oakland_city_raiders_grey">#D2D3D4</color>
+    <color name="philadelphia_eagles_blue">#BACAD3</color>
+    <color name="pittsburgh_steelers_blue">#DCDCDC</color>
+    <color name="san_diego_chargers_yellow">#F0C818</color>
+    <color name="san_francisco_49ers_red">#C81D3C</color>
+    <color name="seattle_seahawks_blue">#00295E</color>
+    <color name="st_louis_rams_blue">#13264B</color>
+    <color name="tampa_bay_buccaneers_red">#B21E35</color>
+    <color name="tennessee_titans_blue">#002D65</color>
+    <color name="washington_redskins_brown">#92352B</color>
+</resources>

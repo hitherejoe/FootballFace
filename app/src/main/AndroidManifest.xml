@@ -12,6 +12,17 @@
                  android:supportsRtl="true"
                  android:theme="@android:style/Theme.DeviceDefault">
 
+        <activity
+            android:name="com.hitherejoe.nflwear.ui.activity.ConfigurationActivity"
+            android:label="@string/config_activity_name">
+            <intent-filter>
+                <action android:name="com.hitherejoe.nflwear.CONFIG_ANALOG" />
+                <category android:name=
+                              "com.google.android.wearable.watchface.category.WEARABLE_CONFIGURATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".data.WatchFaceService"
             android:label="@string/watch_face_name"
@@ -26,10 +37,20 @@
                 android:name="com.google.android.wearable.watchface.preview_circular"
                 android:resource="@drawable/preview_analog" />
 
+            <meta-data
+                android:name="com.google.android.wearable.watchface.wearableConfigurationAction"
+                android:value="com.hitherejoe.nflwear.CONFIG_ANALOG" />
+
             <intent-filter>
                 <action android:name="android.service.wallpaper.WallpaperService" />
 
                 <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+        </service>
+
+        <service android:name="com.hitherejoe.nflwear.data.WatchFaceConfigListenerService" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>
         </service>
 
