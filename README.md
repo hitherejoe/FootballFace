@@ -8,8 +8,45 @@ Football Face
     <img src="images/watch_faces_square.png" alt="Web Icons"/>
 </p>
 
-Football Face is a simple project that lets you select your desired NFL team to use as the watchface for your Android Wear device!
+Football Face is a simple project that lets you select your desired NFL team to use as the watchface for your Android Wear device. The features include:
 
+- Choose a team to use as your watch face
+- Ambient mode support (greyscale)
+
+Currently supported teams include:
+
+- Atlanta Falcons
+- Arizona Cardinals
+- Baltimore Ravens
+- Buffalo Bills
+- Carolina Panthers
+- Chicago Bears
+- Cincinnati Bengals
+- Cleveland Browns
+- Dallas Cowboys
+- Denver Broncos
+- Detroit Lions
+- Green Bay Packers
+- Houston Texans
+- Indianapolis Colts
+- Jacksonville Jaguars
+- Kansas City Chiefs
+- Miami Dolphins
+- Minnesota Vikings
+- New England Patriots
+- New Orleans Saints
+- New York Giants
+- New York Jets
+- Oakland Raiders
+- Philadelphia Eagles
+- Pittsburgh Steelers
+- San Diego Chargers
+- San Francisco 49ers
+- Seattle Seahawks
+- St. Louis Rams
+- Tampa Bay Buccaneers
+- Tennessee Titans
+- Washington Redskins
 
 Requirements
 ------------
