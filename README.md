@@ -2,7 +2,7 @@ Football Face
 =============
 
 <p align="center">
-    <img src="images/web.png" alt="Web Icons"/>
+    <img src="images/watch_faces.png" alt="Web Icons"/>
 </p>
 
 
