@@ -2,7 +2,10 @@ Football Face
 =============
 
 <p align="center">
-    <img src="images/watch_faces.png" alt="Web Icons"/>
+    <img src="images/watch_faces_round.png" alt="Web Icons"/>
+</p>
+<p align="center">
+    <img src="images/watch_faces_square.png" alt="Web Icons"/>
 </p>
 
 Football Face is a simple project that lets you select your desired NFL team to use as the watchface for your Android Wear device!
