@@ -10,7 +10,7 @@ Football Face
 
 Football Face is a simple project that lets you select your desired NFL team to use as the watchface for your Android Wear device. The features include:
 
-- Choose a team to use as your watch face
+- Choose a team to use as your watch face (long press on watch face to do this)
 - Ambient mode support (greyscale)
 
 Currently supported teams include:
